@@ -14,6 +14,16 @@ void error_gesture(int size, char **str)
 		my_printf("Please enter a valid map\n");
 		exit (84);
 	}
+	if ((str[1][0] == '-' && str[1][1] == 'h' && str[1][2] == 0)
+	|| (str[1][0] == '-' && str[1][1] == '-' && str[1][2] == 'h'
+	&& str[1][3] == 'e' && str[1][4] == 'l' && str[1][5] == 'p'
+	&& str[1][6] == 0)) {
+		my_printf("USAGE\n\t./my_sokoban map\nDESCRIPTION\n\tmap file");
+		my_printf(" representing the warehouse map, containing '#' ");
+		my_printf("for walls,\n\t'P' for the player, 'X' for boxes ");
+		my_printf("and 'O' for storage locations.\n");
+		exit (0);
+	}
 	if (open(str[1], O_RDONLY) == -1) {
 		my_printf("Please enter a valid map\n");
 		exit (84);
