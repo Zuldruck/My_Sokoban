@@ -16,7 +16,7 @@ int check_o_visible(char **map, int i, int j, char **map_copy)
 	return (0);
 }
 
-void check_win(char **map, coord_t size, char **map_copy, int nbr_o)
+int check_win(char **map, coord_t size, char **map_copy, int nbr_o)
 {
 	int a = 0;
 
@@ -25,16 +25,12 @@ void check_win(char **map, coord_t size, char **map_copy, int nbr_o)
 			a += check_o_visible(map, i, j, map_copy);
 	}
 	if (a == nbr_o) {
-		attron(A_BOLD);
-		mvprintw((LINES / 2) - (size.height / 2 + 2),
-			(COLS / 2) - 5, "You Win !");
-		attroff(A_BOLD);
 		refresh();
 		usleep(3000000);
 		clear();
-		endwin();
-		exit (0);
+		return (1);
 	}
+	return (0);
 }
 
 int check_x_corner(char **map, int i, int j)
@@ -69,8 +65,10 @@ void check_lose(char **map, coord_t size)
 	}
 }
 
-void check_win_or_lose(char **map, coord_t size, char **map_copy, int nbr_o)
+int check_win_or_lose(char **map, coord_t size, char **map_copy, int nbr_o)
 {
-	check_win(map, size, map_copy, nbr_o);
+	if (check_win(map, size, map_copy, nbr_o) == 1)
+		return (1);
 	check_lose(map, size);
+	return (0);
 }

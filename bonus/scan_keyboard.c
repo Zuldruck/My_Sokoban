@@ -7,43 +7,25 @@
 
 #include "my.h"
 
-void verif_p(char **map, coord_t pos_char, coord_t *pos, int *a)
+void verif_p(char **map, int i, int j, coord_t *pos)
 {
-	if (map[pos_char.height][pos_char.width] == 'P') {
-		pos->height = pos_char.height;
-		pos->width = pos_char.width;
-		*a += 1;
+	if (map[i][j] == 'P') {
+		pos->height = i;
+		pos->width = j;
 	}
 }
 
 coord_t find_pos_player(char **map, coord_t size)
 {
-	coord_t pos_p;
-	coord_t pos_char;
-	int a = 0;
+	coord_t pos;
 
 	for (int i = 0 ; i < size.height ; i++) {
 		for (int j = 0 ; j < size.width ; j++) {
-			pos_char.height = i;
-			pos_char.width = j;
-			verif_p(map, pos_char, &pos_p, &a);
+			verif_p(map, i, j, &pos);
 		}
 	}
-	if (a != 1) {
-		endwin();
-		exit (1);
-	}
-	return (pos_p);
+	return (pos);
 }
-
-/*char **scan_space(char **map, char **map_copy, int key)
-{
-	if (key == ' ') {
-		map = map_copy;
-		printw("RESET MAP");
-	}
-	return (map);
-}*/
 
 void scan_keyboard(char **map, coord_t size, int key)
 {
