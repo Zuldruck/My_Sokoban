@@ -24,7 +24,7 @@ int find_o_positions(char **map, coord_t size)
 		for (int j = 0 ; map[i][j] != '\n' ; j++)
 			verif_o_or_x(map[i][j], &nbr_o, &nbr_x);
 	}
-	if (nbr_o > nbr_x) {
+	if (nbr_o != nbr_x) {
 		my_printf("Please enter a valid map\n");
 		exit (84);
 	}

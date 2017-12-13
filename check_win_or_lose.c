@@ -25,12 +25,7 @@ void check_win(char **map, coord_t size, char **map_copy, int nbr_o)
 			a += check_o_visible(map, i, j, map_copy);
 	}
 	if (a == nbr_o) {
-		attron(A_BOLD);
-		mvprintw((LINES / 2) - (size.height / 2 + 2),
-			(COLS / 2) - 5, "You Win !");
-		attroff(A_BOLD);
 		refresh();
-		usleep(3000000);
 		clear();
 		endwin();
 		exit (0);
@@ -57,12 +52,7 @@ void check_lose(char **map, coord_t size)
 			a += check_x_corner(map, i, j);
 	}
 	if (a == nbr_x) {
-		attron(A_BOLD);
-		mvprintw((LINES / 2) - (size.height / 2 + 2),
-			(COLS / 2) - 6, "You Lose ...");
-		attroff(A_BOLD);
 		refresh();
-		usleep(3000000);
 		clear();
 		endwin();
 		exit (1);

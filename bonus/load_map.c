@@ -39,7 +39,7 @@ coord_t find_size_of_map(char *str)
 		j += 1;
 		if (j > size.width)
 			size.width = j;
-		if (map[i] == '\n') {
+		if (map[i] == '\n' || map[i + 1] == '\0') {
 			size.height += 1;
 			j = 0;
 		}
@@ -78,7 +78,7 @@ char **load_2d_arr_from_file(char const *filepath)
 
 	str = mem_alloc_2d_array(size.height, size.width);
 	while (i < size.height) {
-		while (buf[n] != '\n') {
+		while (buf[n] != '\n' && buf[n + 1] != 0) {
 			str[i][j] = buf[n];
 			j += 1;
 			n += 1;

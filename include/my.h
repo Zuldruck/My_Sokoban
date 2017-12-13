@@ -18,13 +18,13 @@
 #include <stdio.h>
 
 typedef struct tab_s {
-        char c;
-        void (*fptr)(va_list);
+	char c;
+	void (*fptr)(va_list);
 } tab_t;
 
 typedef struct spec_s {
-        char c;
-        int (*fptr)(va_list, int);
+	char c;
+	int (*fptr)(va_list, int);
 } spec_t;
 
 typedef struct coord_s {

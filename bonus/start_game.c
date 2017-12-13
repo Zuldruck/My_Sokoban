@@ -48,6 +48,5 @@ void start_game(void)
 	char **map_copy = mem_dup_2d_array(map, size.height, size.width);
 	int level = 1;
 
-	win();
 	my_loop(map_copy, size, level);
 }
