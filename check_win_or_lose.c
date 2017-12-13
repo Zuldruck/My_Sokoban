@@ -34,10 +34,10 @@ void check_win(char **map, coord_t size, char **map_copy, int nbr_o)
 
 int check_x_corner(char **map, int i, int j)
 {
-	if (map[i][j] == 'X' && ((map[i][j + 1] == '#' && map[i + 1][j] == '#')
-	|| (map[i][j - 1] == '#' && map[i + 1][j] == '#')
-	|| (map[i][j - 1] == '#' && map[i - 1][j] == '#')
-	|| (map[i][j + 1] == '#' && map[i - 1][j] == '#')))
+	if (map[i][j] == 'X' && ((map[i][j + 1] == '#' || map[i][j + 1] == 'X')
+	|| (map[i][j - 1] == '#' || map[i][j - 1] == 'X'))
+	&& ((map[i + 1][j] == '#' || map[i + 1][j] == 'X')
+	|| (map[i - 1][j] == '#' || map[i - 1][j] == 'X')))
 		return (1);
 	return (0);
 }
