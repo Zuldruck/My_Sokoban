@@ -15,8 +15,8 @@ void replace_o(char **map, int i, int j, char **map_copy)
 
 void check_o_positions(char **map, coord_t size, char **map_copy)
 {
-	for (int i = 0 ; i < size.height ; i++) {
-		for (int j = 0 ; map[i][j] != '\n' ; j++)
+	for (int i = 0; i < size.height; i++) {
+		for (int j = 0; map[i][j] != '\n'; j++)
 			replace_o(map, i, j, map_copy);
 	}
 }
@@ -33,8 +33,7 @@ void display_map(char **map, coord_t size, char **map_copy)
 		return;
 	}
 	while (i < size.height) {
-		mvprintw((LINES / 2) - (size.height / 2 - i),
-			(COLS / 2) - (size.width / 2), map[i]);
+		mvprintw(i, 0, map[i]);
 		i++;
 	}
 }
