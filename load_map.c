@@ -76,7 +76,7 @@ char **load_2d_arr_from_file(char const *filepath)
 
 	str = mem_alloc_2d_array(size.height, size.width);
 	while (i < size.height) {
-		while (buf[n] != '\n' && buf[n + 1] != 0) {
+		while (buf[n] != '\n' && buf[n] != 0) {
 			str[i][j] = buf[n];
 			j += 1;
 			n += 1;
