@@ -31,19 +31,11 @@ coord_t find_pos_player(char **map, coord_t size)
 	}
 	if (a != 1) {
 		endwin();
-		exit (1);
+		my_printf("Please enter a valid map\n");
+		exit (84);
 	}
 	return (pos_p);
 }
-
-/*char **scan_space(char **map, char **map_copy, int key)
-{
-	if (key == ' ') {
-		map = map_copy;
-		printw("RESET MAP");
-	}
-	return (map);
-}*/
 
 void scan_keyboard(char **map, coord_t size, int key)
 {
