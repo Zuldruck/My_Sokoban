@@ -5,13 +5,13 @@
 ## my_ls_bootstrap - Makefile
 ##
 
-SRC	= 	main.c	\
-		load_map.c	\
-		display_map.c	\
-		change_position.c	\
-		scan_keyboard.c	\
-		find_o_positions.c	\
-		check_win_or_lose.c	\
+SRC	= 	src/main.c	\
+		src/load_map.c	\
+		src/display_map.c	\
+		src/change_position.c	\
+		src/scan_keyboard.c	\
+		src/find_o_positions.c	\
+		src/check_win_or_lose.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
